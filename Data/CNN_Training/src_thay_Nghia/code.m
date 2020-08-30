@@ -18,9 +18,9 @@ DxLabel=categorical(DxLabel);
 DyLabel=categorical(DyLabel);
 %% Create Neural and Train
 convnet = [imageInputLayer([7400 1])
-          convolution2dLayer([200 1],30,'stride',1)       
+          convolution2dLayer([102 1],5,'stride',1)       
           maxPooling2dLayer([2 1],'stride',2)
-          convolution2dLayer([24 1],10,'numChannels',30)
+          convolution2dLayer([24 1],10,'numChannels',5)
           maxPooling2dLayer([2 1],'stride',2)
           convolution2dLayer([11 1],10,'stride',1,'numChannels',10)
           maxPooling2dLayer([2 1],'stride',2)
