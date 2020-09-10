@@ -1,12 +1,12 @@
 %% Load data
 clear ; clc;
-load('Dx.mat');
-load('Dy.mat');
+load('Dx_Sgolay.mat');
+load('Dy_Sgolay.mat');
 load('DxLabel.mat');
 load('DyLabel.mat');
 
-Dx=Dx';
-Dy=Dy';
+Dx=Dx_Sgolay';
+Dy=Dy_Sgolay';
 Dx=reshape(Dx, [size(Dx,1),1,1,size(Dx,2)]);
 Dy=reshape(Dy, [size(Dy,1),1,1,size(Dy,2)]);
 
@@ -18,9 +18,9 @@ DxLabel=categorical(DxLabel);
 DyLabel=categorical(DyLabel);
 %% Create Neural and Train
 convnet = [imageInputLayer([7400 1])
-          convolution2dLayer([102 1],5,'stride',1)       
+          convolution2dLayer([102 1],3,'stride',1)       
           maxPooling2dLayer([2 1],'stride',2)
-          convolution2dLayer([24 1],10,'numChannels',5)
+          convolution2dLayer([24 1],10,'numChannels',3)
           maxPooling2dLayer([2 1],'stride',2)
           convolution2dLayer([11 1],10,'stride',1,'numChannels',10)
           maxPooling2dLayer([2 1],'stride',2)
@@ -31,6 +31,7 @@ convnet = [imageInputLayer([7400 1])
           fullyConnectedLayer(2)
           softmaxLayer
           classificationLayer];
+
 
 opts = trainingOptions('sgdm','MaxEpochs',50, ...
 	'InitialLearnRate',0.0001,'Plots', 'training-progress');
