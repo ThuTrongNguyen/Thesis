@@ -1,7 +1,8 @@
 %% Load data
 clear ; clc;
-load('Dy.mat');
-Dy=Dy';
-for i = 1:42
-    Dy_Sgolay(:,i) = sgolayfilt(Dy(:,i),1,101);
+load('Dx.mat');
+Dx=Dx';
+for i = 1:98
+    Dx_Sgolay(:,i) = sgolayfilt(Dx(:,i),1,11);
 end
+Dx_Sgolay = Dx_Sgolay';

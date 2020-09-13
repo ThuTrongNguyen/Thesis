@@ -33,7 +33,7 @@ convnet = [imageInputLayer([7400 1])
           classificationLayer];
 
 
-opts = trainingOptions('sgdm','MaxEpochs',50, ...
+opts = trainingOptions('sgdm','MaxEpochs',1000, ...
 	'InitialLearnRate',0.0001,'Plots', 'training-progress');
 net = trainNetwork(Dx,DxLabel,convnet,opts);
 % Test the Network
