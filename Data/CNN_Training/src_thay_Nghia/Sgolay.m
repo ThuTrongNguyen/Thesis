@@ -2,7 +2,7 @@
 clear ; clc; close all;
 load('Dy.mat');
 Dy=Dy';
-for i = 1:42
+for i = 1:98
     Dy_Sgolay(:,i) = sgolayfilt(Dy(:,i),5,71);
     figure
     plot(Dy(:,i)); hold on;
