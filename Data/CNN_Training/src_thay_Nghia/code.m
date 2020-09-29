@@ -1,7 +1,7 @@
 %% Load data
 clear ; clc;
-load('Dx_Sgolay_5_71.mat');
-load('Dy_Sgolay_5_71.mat');
+load('Dx_Sgolay_3_7.mat');
+load('Dy_Sgolay_3_7.mat');
 load('DxLabel.mat');
 load('DyLabel.mat');
 
@@ -33,13 +33,13 @@ DyLabel=categorical(DyLabel);
 %           classificationLayer];
 
       convnet = [imageInputLayer([7400 1])
-          convolution2dLayer([70 1],4,'stride',1)       
+          convolution2dLayer([60 1],4,'stride',1)       
           maxPooling2dLayer([2 1],'stride',2)
-          convolution2dLayer([60 1],4,'stride',1)
+          convolution2dLayer([50 1],4,'stride',1)
           maxPooling2dLayer([2 1],'stride',2)
-          convolution2dLayer([50 1],10,'stride',1)
+          convolution2dLayer([40 1],10,'stride',1)
           maxPooling2dLayer([2 1],'stride',2)
-          convolution2dLayer([4 1],10,'stride',1)
+          convolution2dLayer([40 1],10,'stride',1)
           maxPooling2dLayer([2 1],'stride',2)
           convolution2dLayer([4 1],15,'stride',1)
           maxPooling2dLayer([2 1],'stride',2)
