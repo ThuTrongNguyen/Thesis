@@ -1,11 +1,11 @@
 %% Load data
 clear ; clc; close all;
-load('Dy.mat');
-Dy=Dy';
-for i = 1:42
-    Dy_Sgolay(:,i) = sgolayfilt(Dy(:,i),4,11);
+load('Dx.mat');
+Dx=Dx';
+for i = 1:98
+    Dx_Sgolay(:,i) = sgolayfilt(Dx(:,i),4,11);
     figure
-    plot(Dy(:,i)); hold on;
-    plot(Dy_Sgolay(:,i));
+    plot(Dx(:,i)); hold on;
+    plot(Dx_Sgolay(:,i));
 end
-Dy_Sgolay = Dy_Sgolay';
+Dx_Sgolay = Dx_Sgolay';
