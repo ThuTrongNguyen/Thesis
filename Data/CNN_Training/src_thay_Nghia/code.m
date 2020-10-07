@@ -1,7 +1,7 @@
 %% Load data
-clear ; clc;
-load('Dx_Sgolay_3_7.mat');
-load('Dy_Sgolay_3_7.mat');
+%clear ; clc;
+load('Dx_Sgolay_5_11.mat');
+load('Dy_Sgolay_5_11.mat');
 load('DxLabel.mat');
 load('DyLabel.mat');
 
@@ -36,7 +36,7 @@ DyLabel=categorical(DyLabel);
           convolution2dLayer([60 1],4,'stride',1)       
           maxPooling2dLayer([2 1],'stride',2)
           convolution2dLayer([50 1],4,'stride',1)
-          maxPooling2dLayer([2 1],'stride',2)
+          maxPooling2dLayer([2 1],'stride',2) 
           convolution2dLayer([40 1],10,'stride',1)
           maxPooling2dLayer([2 1],'stride',2)
           convolution2dLayer([40 1],10,'stride',1)
