@@ -1,7 +1,7 @@
 %% Load data
 %clear ; clc;
-load('Dx_Sgolay_5_11.mat');
-load('Dy_Sgolay_5_11.mat');
+load('Dx_Sgolay_5_71.mat');
+load('Dy_Sgolay_5_71.mat');
 load('DxLabel.mat');
 load('DyLabel.mat');
 
@@ -58,4 +58,8 @@ net = trainNetwork(Dx,DxLabel,convnet,opts);
 YTest = classify(net, Dy);
 accuracy = sum(YTest == DyLabel)/numel(DyLabel)*100
 
-
+% figure('Units','normalized','Position',[0.2 0.2 0.5 0.5]);
+% ccDCNN = confusionchart(DyLabel_vector,YTest_vector);
+% ccDCNN.Title = 'Confusion Chart';
+% ccDCNN.ColumnSummary = 'column-normalized';
+% ccDCNN.RowSummary = 'row-normalized';
